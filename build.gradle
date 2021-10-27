@@ -1,12 +1,12 @@
 plugins {
     id "java"
     id "com.github.johnrengelman.shadow" version "6.1.0"
-    id "net.minecraftforge.gradle.forge" version "6f53277"
+    id "net.minecraftforge.gradle.forge" version "6f5327738d"
 }
 
 version = "1.0"
-group = "dev.asbyth"
-archivesBaseName = "ForgeTemplate"
+group = "io.github.dediamondpro"
+archivesBaseName = "PixelParty"
 
 sourceCompatibility = targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
@@ -20,15 +20,19 @@ minecraft {
 
 configurations {
     // Creates an extra configuration that implements `implementation` to be used later as the configuration that shades libraries
-    include
     implementation.extendsFrom(include)
 }
 
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url "https://repo.sk1er.club/repository/maven-public" }
+    maven { url 'https://repo.spongepowered.org/repository/maven-public/' }
+}
+
 dependencies {
-    // How to normally add a dependency (If you don't want it to be added to the jar)
-    // implementation "com.example:example:1.0.0"
-    // If you would like to include it (have the library inside your jar) instead use
-    // include "com.example:example:1.0.0"
+    include 'gg.essential:loader-launchwrapper:1.1.1'
+    implementation 'gg.essential:essential-1.8.9-forge:1359'
 }
 
 /**
@@ -59,7 +63,7 @@ processResources {
 task moveResources {
     doLast {
         ant.move file: "${buildDir}/resources/main",
-            todir: "${buildDir}/classes/java"
+                todir: "${buildDir}/classes/java"
     }
 }
 
@@ -68,9 +72,13 @@ classes.dependsOn moveResources
 
 // This adds support to ("embed", "shade", "include") libraries into our JAR
 shadowJar {
-    archiveClassifier.set('')
+    archiveClassifier.set('dep')
     configurations = [project.configurations.include]
     duplicatesStrategy DuplicatesStrategy.EXCLUDE
 }
 
-jar.dependsOn shadowJar
+reobf { shadowJar { mappingType = "SEARGE" } }
+tasks.reobfShadowJar.mustRunAfter shadowJar
+afterEvaluate {
+    build.dependsOn reobfShadowJar
+}

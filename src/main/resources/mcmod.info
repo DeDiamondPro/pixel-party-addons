@@ -1,8 +1,8 @@
 [
   {
-    "modid": "forgetemplate",
-    "name": "ForgeTemplate",
-    "description": "An example template",
+    "modid": "pixelparty",
+    "name": "Pixel Party",
+    "description": "Pixel Party",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "",
