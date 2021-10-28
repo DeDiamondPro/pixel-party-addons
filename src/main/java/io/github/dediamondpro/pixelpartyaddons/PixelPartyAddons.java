@@ -1,17 +1,17 @@
-package io.github.dediamondpro.pixelparty;
+package io.github.dediamondpro.pixelpartyaddons;
 
 import gg.essential.api.EssentialAPI;
-import io.github.dediamondpro.pixelparty.commands.ConfigCommand;
-import io.github.dediamondpro.pixelparty.config.Config;
-import io.github.dediamondpro.pixelparty.handlers.EventHandler;
-import io.github.dediamondpro.pixelparty.spotify.Authenticator;
-import io.github.dediamondpro.pixelparty.spotify.SpotifyApi;
+import io.github.dediamondpro.pixelpartyaddons.commands.ConfigCommand;
+import io.github.dediamondpro.pixelpartyaddons.config.Config;
+import io.github.dediamondpro.pixelpartyaddons.handlers.EventHandler;
+import io.github.dediamondpro.pixelpartyaddons.spotify.Authenticator;
+import io.github.dediamondpro.pixelpartyaddons.spotify.SpotifyApi;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-@Mod(modid = "pixelparty", name = "Pixel Party", version = "1.0")
-public class PixelParty {
+@Mod(modid = "pixelpartyaddons", name = "Pixel Party Addons", version = "1.0")
+public class PixelPartyAddons {
     public static SpotifyApi spotifyApi = null;
     public static final Config config = new Config();
 

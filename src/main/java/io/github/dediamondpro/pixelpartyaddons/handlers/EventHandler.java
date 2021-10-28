@@ -1,7 +1,7 @@
-package io.github.dediamondpro.pixelparty.handlers;
+package io.github.dediamondpro.pixelpartyaddons.handlers;
 
-import io.github.dediamondpro.pixelparty.PixelParty;
-import io.github.dediamondpro.pixelparty.config.Config;
+import io.github.dediamondpro.pixelpartyaddons.PixelPartyAddons;
+import io.github.dediamondpro.pixelpartyaddons.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.scoreboard.ScoreObjective;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -30,22 +30,22 @@ public class EventHandler {
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
-        if (!isInPixelParty || PixelParty.spotifyApi == null) return;
+        if (!isInPixelParty || PixelPartyAddons.spotifyApi == null) return;
         switch (event.type) {
             case 0:
                 if (startPattern.matcher(event.message.getUnformattedText()).matches() && !started && Config.autoSkip) {
-                    PixelParty.spotifyApi.skip();
+                    PixelPartyAddons.spotifyApi.skip();
                     started = true;
                     System.out.println("skip");
                 }
                 break;
             case 2:
                 if (event.message.getUnformattedText().contains("FREEZE") && playing && Config.playPause) {
-                    PixelParty.spotifyApi.pause();
+                    PixelPartyAddons.spotifyApi.pause();
                     playing = false;
                     System.out.println("pause");
                 } else if (!playing && Config.playPause) {
-                    PixelParty.spotifyApi.play();
+                    PixelPartyAddons.spotifyApi.play();
                     playing = true;
                     System.out.println("play");
                 }

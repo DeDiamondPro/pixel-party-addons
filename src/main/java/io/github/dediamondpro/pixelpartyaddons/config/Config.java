@@ -1,9 +1,9 @@
-package io.github.dediamondpro.pixelparty.config;
+package io.github.dediamondpro.pixelpartyaddons.config;
 
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
 import gg.essential.vigilance.data.PropertyType;
-import io.github.dediamondpro.pixelparty.spotify.Authenticator;
+import io.github.dediamondpro.pixelpartyaddons.spotify.Authenticator;
 
 import java.io.File;
 

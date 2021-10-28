@@ -1,4 +1,4 @@
-package io.github.dediamondpro.pixelparty.spotify;
+package io.github.dediamondpro.pixelpartyaddons.spotify;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;

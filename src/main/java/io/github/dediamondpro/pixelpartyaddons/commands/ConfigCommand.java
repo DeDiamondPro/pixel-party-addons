@@ -1,9 +1,9 @@
-package io.github.dediamondpro.pixelparty.commands;
+package io.github.dediamondpro.pixelpartyaddons.commands;
 
 import gg.essential.api.EssentialAPI;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;
-import io.github.dediamondpro.pixelparty.PixelParty;
+import io.github.dediamondpro.pixelpartyaddons.PixelPartyAddons;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.LinkedHashSet;
@@ -20,7 +20,7 @@ public class ConfigCommand extends Command {
 
     @DefaultHandler
     public void handler() {
-        EssentialAPI.getGuiUtil().openScreen(PixelParty.config.gui());
+        EssentialAPI.getGuiUtil().openScreen(PixelPartyAddons.config.gui());
     }
 
     public ConfigCommand() {

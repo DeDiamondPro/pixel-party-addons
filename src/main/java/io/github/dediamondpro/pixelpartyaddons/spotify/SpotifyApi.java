@@ -1,6 +1,6 @@
-package io.github.dediamondpro.pixelparty.spotify;
+package io.github.dediamondpro.pixelpartyaddons.spotify;
 
-import io.github.dediamondpro.pixelparty.config.Config;
+import io.github.dediamondpro.pixelpartyaddons.config.Config;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.DataOutputStream;

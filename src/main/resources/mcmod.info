@@ -1,8 +1,8 @@
 [
   {
-    "modid": "pixelparty",
-    "name": "Pixel Party",
-    "description": "Pixel Party",
+    "modid": "pixelpartyaddons",
+    "name": "Pixel Party Addons",
+    "description": "Some addons for hypixel's pixel party game mode.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "",

@@ -1,10 +1,9 @@
-package io.github.dediamondpro.pixelparty.spotify;
+package io.github.dediamondpro.pixelpartyaddons.spotify;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import io.github.dediamondpro.pixelparty.PixelParty;
-import io.github.dediamondpro.pixelparty.config.Config;
+import io.github.dediamondpro.pixelpartyaddons.PixelPartyAddons;
+import io.github.dediamondpro.pixelpartyaddons.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.HoverEvent;
@@ -65,10 +64,10 @@ public class Authenticator {
             return;
         }
         System.out.println("Got tokens");
-        PixelParty.spotifyApi = new SpotifyApi(json.get("access_token").getAsString());
+        PixelPartyAddons.spotifyApi = new SpotifyApi(json.get("access_token").getAsString());
         Config.refreshToken = json.get("refresh_token").getAsString();
-        PixelParty.config.markDirty();
-        PixelParty.config.writeData();
+        PixelPartyAddons.config.markDirty();
+        PixelPartyAddons.config.writeData();
 
         if (Minecraft.getMinecraft().thePlayer != null)
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.YELLOW
@@ -83,11 +82,11 @@ public class Authenticator {
         if (json == null)
             return;
         triedRefresh = false;
-        PixelParty.spotifyApi = new SpotifyApi(json.get("access_token").getAsString());
+        PixelPartyAddons.spotifyApi = new SpotifyApi(json.get("access_token").getAsString());
         if (json.has("refresh_token")) {
             Config.refreshToken = json.get("refresh_token").getAsString();
-            PixelParty.config.markDirty();
-            PixelParty.config.writeData();
+            PixelPartyAddons.config.markDirty();
+            PixelPartyAddons.config.writeData();
         }
     }
 
